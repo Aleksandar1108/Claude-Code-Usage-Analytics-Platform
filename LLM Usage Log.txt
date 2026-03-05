@@ -1,0 +1,155 @@
+LLM USAGE LOG
+Claude Code Analytics Platform – Technical Assignment
+
+AI Tools Used:
+- Cursor AI
+
+1. Architecture Design
+Prompt:
+I am working on a technical assignment for a GenAI internship.
+
+I have uploaded the assignment instructions and the dataset generator files.
+
+The goal is to build an analytics platform that processes telemetry data from Claude Code sessions and produces insights about developer behavior and AI usage.
+
+I would like to implement the project using Python.
+Please do the following:
+
+1. Read the assignment instructions and the dataset README.
+2. Analyze the structure of the telemetry logs and employee metadata.
+3. Identify the main entities in the system (users, sessions, events, etc.).
+4. Propose a clean architecture for an end-to-end analytics platform.
+
+The platform should include:
+
+* data ingestion and parsing
+* a SQL storage layer (SQLite preferred)
+* an analytics layer for usage insights
+* an interactive dashboard (Streamlit)
+
+Please also suggest a professional project folder structure suitable for a GitHub repository.
+
+2.Data processing
+Prompt:
+The architecture looks good.
+Let's proceed with implementing the project.
+Please start by creating the initial project structure and necessary folders according to the architecture.
+Then help me implement:
+1. the SQLite database schema
+2. the telemetry data ingestion script that parses telemetry_logs.jsonl
+3. basic data validation and cleaning
+Prompt:
+Continue with implementing the analytics layer first. After that we will build the Streamlit dashboard
+Prompt: Before moving to the Streamlit dahsboard, let's verify that everything works correctly.
+
+Please:
+1.Confirm that all dependencies from requirements.txt are installed
+2. Verify that the SQLite database is created successfully
+3.Run the ingestion pipeline to ensure telemetry data is loaded into the database
+4.Test the analytics functions with sample queries to confirm they return correct results
+After verification, we can proceed with building the Streamlit dashboard
+
+3.Dashboard implementation
+Prompt:
+Yes, proceed with building the Streamlit dashboard. The dashboard should include the following sections:
+1.Token usage analytics
+-total token
+-tokens by practice
+-tokens by model
+
+2. Cost analytics
+-total cost
+-cost by model
+
+3.Usage patterns
+-peak usage hours
+-tool usage statistics
+
+4.Session analytics
+-number of sessions
+-average session duration
+
+5. Daily trends
+- activity over time
+
+Use clear visualizations (Plotly or Streamlit charts ) and make the dashboard interactive if possible.
+
+Also, please make sure that the implementation aligns with the requirements  described in the assignment PDF I previously shared.
+
+4.Debugging
+Prompt:
+We encountered another issue in the dashboard.
+
+The application throws a ValueError when parsing timestamps:
+
+ValueError: time data "2026-01-31 15:56:00+00:00" doesn't match format "%Y-%m-%d %H:%M:%S.%f%z"
+
+This occurs in:
+src/analytics/trend_analytics.py
+
+Line:
+df["date"] = pd.to_datetime(df["timestamp"]).dt.date
+
+It seems the timestamp format in the dataset is ISO8601 but without microseconds.
+
+Please update the timestamp parsing logic to correctly handle ISO8601 timestamps, for example by using:
+
+pd.to_datetime(df["timestamp"], format="ISO8601")
+
+or allowing pandas to infer the format safely.
+
+Additionally, please ensure that the project follows the dataset specification from the README.
+
+The project must produce the required output files:
+- telemetry_logs.jsonl
+- employees.csv
+
+If they are missing, implement the data generation step using generate_fake_data.py so these files are produced before ingestion.
+
+After fixing this issue, verify that the dashboard runs correctly across all pages.
+
+
+5.System Design
+Prompt:
+Please improve the **visual design and user experience** of the Streamlit dashboard to make it look more professional and polished.
+
+Focus on the following improvements:
+
+1. **Modern layout**
+
+   * Use a clean wide layout with properly spaced sections.
+   * Organize metrics in visually appealing metric cards.
+   * Use columns to create a balanced dashboard structure.
+
+2. **Professional styling**
+
+   * Add a consistent color palette across all charts and UI elements.
+   * Improve typography and spacing.
+   * Use subtle backgrounds for sections or containers to make the layout clearer.
+
+3. **Enhanced metric cards**
+
+   * Improve the appearance of key metrics (total tokens, total cost, sessions, etc.).
+   * Add icons or visual indicators where appropriate.
+   * Highlight important KPIs.
+
+4. **Better charts**
+
+   * Use more visually appealing Plotly charts.
+   * Add tooltips, legends, and hover information.
+   * Improve chart titles and axis labels.
+
+5. **Dashboard overview improvements**
+
+   * Create a stronger **Overview page** with high-level insights.
+   * Add summary charts and quick insights.
+
+6. **UI polish**
+
+   * Improve sidebar styling.
+   * Add section headers and dividers.
+   * Ensure consistent spacing between elements.
+
+The goal is to make the dashboard look **modern, clean, and suitable for presenting to stakeholders or in a professional portfolio**.
+
+Also ensure the design remains responsive and easy to navigate.
