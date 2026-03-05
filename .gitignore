@@ -46,6 +46,10 @@ data/database/*.db-journal
 .env
 .env.local
 
+output/
+*.jsonl
+*.csv
+
 # Logs
 *.log
 logs/
