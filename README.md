@@ -114,7 +114,7 @@ The database includes:
 - **Event Tables**: `events` (unified), `api_requests`, `tool_decisions`, `tool_results`, `user_prompts`, `api_errors`
 - **Indexes**: Strategic indexes on frequently queried columns for performance
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for complete schema details.
+
 
 ## 🚀 Setup Instructions
 
@@ -406,7 +406,7 @@ claude-code-analytics/
 └── PROJECT_STRUCTURE.md    # Project structure details
 ```
 
-See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed file descriptions.
+
 
 ## 🛠️ Development
 
@@ -441,13 +441,6 @@ CSV file with columns:
 - `level`: Seniority level (L1-L10)
 - `location`: Country
 
-## 📚 Documentation
-
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Detailed architecture documentation
-- [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) - Project structure details
-- [ANALYSIS_SUMMARY.md](ANALYSIS_SUMMARY.md) - Data analysis summary
-- [QUICK_REFERENCE.md](QUICK_REFERENCE.md) - Quick reference guide
-- [API_DOCUMENTATION.md](API_DOCUMENTATION.md) - API endpoint documentation
 
 ## 🐛 Troubleshooting
 
